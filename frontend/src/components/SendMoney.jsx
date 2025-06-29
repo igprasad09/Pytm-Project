@@ -14,7 +14,7 @@ export const SendMoney = ({ firstname, lastname, id }) => {
     }
     try {
       const response = await axios.post("http://localhost:3000/api/v1/account/transfer", {
-        to: id+'w',
+        to: id,
         amount: amount
       }, {
         headers: {
