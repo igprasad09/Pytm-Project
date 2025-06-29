@@ -33,7 +33,7 @@ routes.post('/account/transfer',authMiddleware,async(req,res)=>{
       }).session(session);
       
       if(!amount || balance < amount){
-          return res.json({       
+          return res.status(422).json({       
 	               message: "Insufficient balance"
            })
       }
@@ -44,12 +44,12 @@ routes.post('/account/transfer',authMiddleware,async(req,res)=>{
          }).session(session);
 
          if(!toUser){
-             return res.json({
+             return res.status(422).json({
 	              message: "Invalid account"
              })
          }
       }catch(err){
-          return res.json({
+          return res.status(422).json({
 	              message: "Invalid account"
              })
       }

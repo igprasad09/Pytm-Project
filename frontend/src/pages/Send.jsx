@@ -11,7 +11,7 @@ export default function Send() {
   });
   return (
     <div className="bg-gray-100 h-screen w-full grid justify-center items-center">
-         <SendMoney firstname={userData.firstname} lastname={userData.lastname} />
+         <SendMoney id={userData.id} firstname={userData.firstname} lastname={userData.lastname} />
     </div>
   )
 }
