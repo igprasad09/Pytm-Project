@@ -13,7 +13,7 @@ export const SendMoney = ({ firstname, lastname, id }) => {
       return; 
     }
     try {
-      const response = await axios.post("http://localhost:3000/api/v1/account/transfer", {
+      const response = await axios.post("https://paytm-project-d2r3.onrender.com/api/v1/account/transfer", {
         to: id,
         amount: amount
       }, {

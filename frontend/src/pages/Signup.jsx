@@ -17,7 +17,7 @@ export default function Signup() {
 
   async function handle_signupBackend() {
     try {
-      const response = await axios.post("http://localhost:3000/api/v1/user/signup", {
+      const response = await axios.post("https://paytm-project-d2r3.onrender.com/api/v1/user/signup", {
         firstName,
         lastName,
         username,

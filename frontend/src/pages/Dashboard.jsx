@@ -18,14 +18,14 @@ export default function Dashboard() {
        }
   })
   useEffect(()=>{
-       axios.get("http://localhost:3000/api/v1/account/balance",{
+       axios.get("https://paytm-project-d2r3.onrender.com/api/v1/account/balance",{
           headers:{
               authorization: localStorage.getItem('token'),
           }
        }).then(res => {
             setAmount(res.data.balance);
        })
-       axios.get("http://localhost:3000/api/v1/username",{
+       axios.get("https://paytm-project-d2r3.onrender.com/api/v1/username",{
          headers:{
              authorization: localStorage.getItem('token'),
          }
