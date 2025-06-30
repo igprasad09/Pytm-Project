@@ -1,10 +1,12 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
 import { useNavigate } from 'react-router-dom'
+import { useDebounce } from "./CostomHook"
 
 export const Users = () => {
     const [users, setUsers] = useState([]);
     const [filter, setFilter] = useState('');
+    const debouncedFilterValue = useDebounce(filter);
     useEffect(() => {
         axios.get("https://paytm-project-d2r3.onrender.com/api/v1/user/bulk?filter=" + filter, {
             headers: {
@@ -14,7 +16,7 @@ export const Users = () => {
             .then(res => {
                 setUsers(res.data.user);
             })
-    }, [filter])
+    }, [debouncedFilterValue])
 
     return (
         <div className="pl-5">
@@ -59,3 +61,4 @@ function User({ user }) {
         </div>
     )
 }
+
