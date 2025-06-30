@@ -2,7 +2,7 @@ const express = require('express');
 const {User, Account} = require('../db.js');
 const jwt = require('jsonwebtoken');
 const zod = require('zod')
-const JWT_SECRET = require('../config.js')
+const {JWT_SECRET }= require('../config.js')
 const routes = express.Router();
 const {userSignupChecker, userSigninChecker, authMiddleware } = require('../middlewares/usermiddleware');
 
@@ -56,6 +56,15 @@ routes.patch('/user',async(req,res)=>{
        return res.json({
 	         message: "Updated successfully"
            })
+})
+
+routes.get("/username",authMiddleware,async(req,res)=>{
+          const userId = req.userId;
+          const user = await User.findById(userId);
+          const name = user.firstName + ' ' + user.lastName;
+          res.json({
+              name
+          })
 })
 
 routes.get('/user/bulk',authMiddleware,async(req,res)=>{

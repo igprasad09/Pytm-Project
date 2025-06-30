@@ -39,6 +39,7 @@ export const SendMoney = ({ firstname, lastname, id }) => {
 
     <div className="">
       {showVideo ? (
+        <>
         <video
           autoPlay
           muted
@@ -48,6 +49,10 @@ export const SendMoney = ({ firstname, lastname, id }) => {
           <source src="/successfull.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
+        <button onClick={()=>{
+            setShowVideo(false)
+        }} className='bg-green-500 text-white mb-8 cursor-pointer hover:bg-green-800 font-normal ml-10 mt-5 w-79 h-9 rounded-sm'>Send Again</button>
+       </> 
       ) : (<div className="bg-white w-100 rounded-md shadow-xl/30 ">
         <Heading Label={'Send Money'} />
         <span className="flex gap-2 items-center pt-14 pl-10">

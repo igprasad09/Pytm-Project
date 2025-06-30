@@ -1,2 +1,6 @@
-const JWT_SECRET = '8722';
-module.exports = JWT_SECRET
+require('dotenv').config();
+
+module.exports = {
+    JWT_SECRET: process.env.JWT_SECRET,
+    PORT: process.env.PORT || 3000
+};
